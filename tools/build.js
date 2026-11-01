@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.join(__dirname, '..');
-const cssVersion = 13;
+const cssVersion = 14;
 const SITE_URL = 'https://laibob0405.github.io/just-dance-guide/';
 
 // ---------- Zhuyin ----------
@@ -241,11 +241,12 @@ function page(file, title, description, body, footer) {
   <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <link rel="stylesheet" href="style.css?v=${cssVersion}">
+  <script src="menu.js?v=${cssVersion}" defer></script>
 </head>
 <body>
   <header>
     <div class="wrap">
-      <nav aria-label="主選單"><ul>${nav}</ul></nav>
+      <nav aria-label="主選單"><button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-menu"><svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true"><path d="M4 6H20M4 12H20M4 18H20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>${z('選單')}</button><ul id="main-menu">${nav}</ul></nav>
     </div>
   </header>
   <main class="wrap">
