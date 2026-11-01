@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.join(__dirname, '..');
-const cssVersion = 6;
+const cssVersion = 7;
 
 // ---------- Zhuyin ----------
 
@@ -48,6 +48,10 @@ function z(text) {
     } else if (/[一-鿿]/.test(ch)) {
       if (!CHARS[ch]) throw new Error(`No zhuyin for "${ch}" in "${text}"`);
       out += ruby(ch, CHARS[ch]);
+      i += 1;
+    } else if (/[，。！？]/.test(ch) && out.endsWith('</span>')) {
+      // Keep punctuation on the same line as the character before it.
+      out = `${out.slice(0, -7)}<span class="p">${ch}</span></span>`;
       i += 1;
     } else {
       out += ch;
@@ -196,7 +200,7 @@ const NAV = [
 ];
 
 const cards = (items, numbered) =>
-  `<${numbered ? 'ol' : 'ul'} class="cards">\n${items.map(([svg, title, text]) =>
+  `<${numbered ? 'ol' : 'ul'} class="cards${items.length === 4 ? ' two' : ''}">\n${items.map(([svg, title, text]) =>
     `<li>${svg}<h3>${z(title)}</h3>${text ? `<p>${z(text)}</p>` : ''}</li>`).join('\n')}\n</${numbered ? 'ol' : 'ul'}>`;
 
 const conclusion = text =>
