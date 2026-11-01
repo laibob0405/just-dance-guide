@@ -126,6 +126,79 @@ figcaption {
   line-height: 1.6;
 }
 
+figure.small img {
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+ol.kid-steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+  counter-reset: kid;
+}
+
+ol.kid-steps li {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  counter-increment: kid;
+}
+
+ol.kid-steps li::before {
+  content: counter(kid);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--surface);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 36px;
+  text-align: center;
+}
+
+ol.kid-steps svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+ol.kid-steps h3 {
+  margin: 12px 14px 2px;
+  font-size: 22px;
+}
+
+ol.kid-steps p {
+  margin: 0 14px 14px;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+@media (max-width: 520px) {
+  ol.kid-steps { grid-template-columns: 1fr; }
+}
+
+details.parent {
+  margin: 20px 0;
+  padding: 12px 18px;
+  background: var(--accent-soft);
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+details.parent summary {
+  font-weight: 700;
+  cursor: pointer;
+}
+
 .key {
   margin: 20px 0;
   padding: 16px 18px;
