@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.join(__dirname, '..');
-const cssVersion = 15;
+const cssVersion = 16;
 const SITE_URL = 'https://laibob0405.github.io/just-dance-guide/';
 
 // ---------- Zhuyin ----------
@@ -308,16 +308,16 @@ page('index.html', 'Just Dance 親子指南', '用孩子看得懂的圖和注音
 page('high-score.html', 'Just Dance 跳高分', '用注音和扁平圖示，讓小一、小三的孩子看懂跳高分的六個關鍵。', `
     <h1>${z('怎麼跳高分')}</h1>
     <p class="lead">${z('做好這六件事，分數就有機會變高！')}</p>
-    ${conclusion('遊戲主要看你拿 Joy-Con 的那隻手，手要做對！')}
+    ${conclusion('遊戲主要看拿 Joy-Con 的手，要做對！')}
 
     ${h2('跳高分的六個關鍵')}
     ${cards([
-      [I.grip, '拿好 Joy-Con', '照畫面教的方法拿好，不要晃來晃去。'],
+      [I.grip, '拿好 Joy-Con', '照畫面拿好，不要晃來晃去。'],
       [I.stretch, '手伸長長', '手臂伸直，動作做大一點。'],
-      [I.beat, '跟上節拍', '聽音樂數一二三四，不要慢一拍。'],
-      [I.watch, '看著舞者', '眼睛看舞者，偷看小圖就知道下一步。'],
+      [I.beat, '跟上節拍', '聽音樂數節拍，不要慢一拍。'],
+      [I.watch, '看著舞者', '看舞者，偷看小圖知道下一步。'],
       [I.mirror, '像照鏡子', '舞者往右邊，你也往右邊。'],
-      [I.repeat, '多跳幾次', '同一首歌多跳幾次，金色動作要做好！'],
+      [I.repeat, '多跳幾次', '多跳幾次，金色動作要做好！'],
     ], true)}
 
     ${h2('不要這樣做')}

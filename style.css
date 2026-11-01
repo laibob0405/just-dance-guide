@@ -280,6 +280,8 @@ ol.cards li::before {
   line-height: 1.35;
 }
 
+.cards h3:last-child { margin-bottom: 14px; }
+
 .cards p {
   margin: 0 14px 14px;
   font-size: 34px;
