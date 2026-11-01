@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.join(__dirname, '..');
-const cssVersion = 16;
+const cssVersion = 17;
 const SITE_URL = 'https://laibob0405.github.io/just-dance-guide/';
 
 // ---------- Zhuyin ----------
@@ -17,7 +17,7 @@ const WORDS = {
 };
 
 const CHARS = Object.fromEntries(`
-照ㄓㄠˋ 先ㄒㄧㄢ 一ㄧ 三ㄙㄢ 上ㄕㄤˋ 下ㄒㄧㄚˋ 不ㄅㄨˋ 且ㄑㄧㄝˇ 主ㄓㄨˇ 乎ㄏㄨ 互ㄏㄨˋ 五ㄨˇ 人ㄖㄣˊ 什ㄕㄣˊ 件ㄐㄧㄢˋ 以ㄧˇ
+八ㄅㄚ 照ㄓㄠˋ 先ㄒㄧㄢ 段ㄉㄨㄢˋ 頭ㄊㄡˊ 尾ㄨㄟˇ 陪ㄆㄟˊ 官ㄍㄨㄢ 頻ㄆㄧㄣˊ 一ㄧ 三ㄙㄢ 上ㄕㄤˋ 下ㄒㄧㄚˋ 不ㄅㄨˋ 且ㄑㄧㄝˇ 主ㄓㄨˇ 乎ㄏㄨ 互ㄏㄨˋ 五ㄨˇ 人ㄖㄣˊ 什ㄕㄣˊ 件ㄐㄧㄢˋ 以ㄧˇ
 休ㄒㄧㄡ 你ㄋㄧˇ 作ㄗㄨㄛˋ 來ㄌㄞˊ 個ㄍㄜˋ 偷ㄊㄡ 像ㄒㄧㄤˋ 兩ㄌㄧㄤˇ 六ㄌㄧㄡˋ 再ㄗㄞˋ 出ㄔㄨ 分ㄈㄣ 到ㄉㄠˋ 動ㄉㄨㄥˋ
 加ㄐㄧㄚ 努ㄋㄨˇ 去ㄑㄩˋ 又ㄧㄡˋ 友ㄧㄡˇ 只ㄓˇ 可ㄎㄜˇ 右ㄧㄡˋ 告ㄍㄠˋ 和ㄏㄜˊ 四ㄙˋ 回ㄏㄨㄟˊ 圖ㄊㄨˊ 在ㄗㄞˋ
 坐ㄗㄨㄛˋ 多ㄉㄨㄛ 大ㄉㄚˋ 好ㄏㄠˇ 媽ㄇㄚ 學ㄒㄩㄝˊ 完ㄨㄢˊ 家ㄐㄧㄚ 小ㄒㄧㄠˇ 就ㄐㄧㄡˋ 己ㄐㄧˇ 幾ㄐㄧˇ 度ㄉㄨˋ 開ㄎㄞ
@@ -180,6 +180,13 @@ const I = {
     `<rect x="46" y="72" width="32" height="42" rx="6" fill="${C.blue}"/><rect x="92" y="44" width="32" height="70" rx="6" fill="${C.green}"/>` + star(150, 40, .9)),
   family: icon('跟家人一起跳', C.rose,
     person(62, 20, C.purple, [-24, 8], [24, 48]) + `<g transform="translate(132 40) scale(.8) translate(-132 0)">${person(132, 0, C.blue, [-24, 40], [24, 8])}</g>`),
+  warmUp: icon('先動動手和腳', C.mint,
+    person(100, 22, C.green, [-44, 34], [44, 34]) + line('M34 34q-12 22 0 44M166 34q12 22 0 44', C.blue, 6)),
+  segment: icon('把一首歌分成一小段一小段', C.ice,
+    [30, 72, 114].map((x, i) => `<rect x="${x}" y="48" width="36" height="34" rx="8" fill="${i ? '#c9d6e6' : C.purple}"/>`).join('')
+    + `<rect x="156" y="48" width="20" height="34" rx="8" fill="#c9d6e6"/>`),
+  fullSong: icon('跟著音樂跳完整首歌', C.sand,
+    person(70, 22, C.blue, [-26, 10], [26, 10]) + note(140, 88, C.purple)),
   level: icon('難度從簡單到難', C.ice,
     `<rect x="44" y="80" width="30" height="34" rx="6" fill="${C.green}"/><rect x="85" y="56" width="30" height="58" rx="6" fill="${C.gold}"/><rect x="126" y="24" width="30" height="90" rx="6" fill="${C.red}"/>`),
   preview: icon('大人先看影片', C.lilac,
@@ -380,13 +387,25 @@ page('kids.html', '陪孩子練 Just Dance', '分四步驟練習 Just Dance，�
     <p class="lead">${z('先練手，再加腳。')}</p>
     ${conclusion('眼睛看舞者，偷看小圖。')}
 
-    ${h2('四個練習步驟')}
+    ${h2('練習八步驟')}
     ${cards([
+      [I.warmUp, '先動一動', '動動手，動動腳。'],
       [I.firstLook, '先看一次', '坐著看舞者跳，一起數節拍。'],
       [I.handsOnly, '只動手', '先不用管腳。'],
       [I.hint, '看小圖', '小圖會告訴你下一步。'],
       [I.addFeet, '加上腳', '手跟腳一起動。'],
+      [I.segment, '分段練習', '一次只練一小段。'],
+      [I.fullSong, '跟著音樂跳', '音樂開始，從頭跳到尾。'],
+      [I.repeat, '再跳一次', '看看有沒有比上次好。'],
     ], true)}
+
+    ${h2('跟著影片練習')}
+    <p class="big">${z('請大人陪你一起看。')}</p>
+    <ul class="cards rows videos">
+      <li>${I.preview}<div class="card-text"><h3><a href="https://www.youtube.com/watch?v=ulXXqMwmEVI" target="_blank" rel="noopener">${z('看 Baby Shark')}</a></h3><p>Just Dance 2020</p></div></li>
+      <li>${I.preview}<div class="card-text"><h3><a href="https://www.youtube.com/watch?v=svF_zohISbs" target="_blank" rel="noopener">${z('看 All Star')}</a></h3><p>Just Dance 2026</p></div></li>
+      <li>${I.preview}<div class="card-text"><h3><a href="https://www.youtube.com/@justdancegame/videos" target="_blank" rel="noopener">${z('更多影片')}</a></h3><p>${z('官方頻道')}</p></div></li>
+    </ul>
 
     ${h2('跳得開心最重要')}
     ${cards([
@@ -397,6 +416,7 @@ page('kids.html', '陪孩子練 Just Dance', '分四步驟練習 Just Dance，�
 
     ${parents('依年紀調整的陪練方法', `
       <p>以下是根據遊戲設計和孩子學動作的經驗整理的建議，不是官方教學。</p>
+      <p><strong>關於影片：</strong>連結都會開啟 YouTube 上 Just Dance 官方頻道的內容，影片可能只是歌曲片段。YouTube 可能顯示廣告和推薦影片，建議家長先看過並陪同觀看。</p>
       <ul>
         <li><strong>小一：</strong>一次只給一個重點，例如這首歌「手伸直」就好。家長可以站在旁邊一起跳，也可以說「照著鏡子跳」。</li>
         <li><strong>小三：</strong>可以開始練習邊看舞者邊瞄圖示，也可以請孩子當小老師，減少互相比較。</li>

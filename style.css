@@ -282,6 +282,23 @@ ol.cards li::before {
 
 .cards h3:last-child { margin-bottom: 14px; }
 
+.videos a {
+  color: var(--accent);
+}
+
+.videos a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.videos a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.videos li:hover { border-color: var(--accent); }
+
 .cards p {
   margin: 0 14px 14px;
   font-size: 34px;
