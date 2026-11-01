@@ -194,9 +194,9 @@ const stars = n => `<svg viewBox="0 0 150 30" class="stars" role="img" aria-labe
 
 const NAV = [
   ['index.html', '首頁'],
-  ['high-score.html', '跳高分'],
-  ['scoring.html', '怎麼評分'],
   ['kids.html', '怎麼練習'],
+  ['scoring.html', '怎麼評分'],
+  ['high-score.html', '跳高分'],
   ['songs.html', '選歌'],
 ];
 
