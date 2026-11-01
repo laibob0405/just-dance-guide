@@ -265,7 +265,7 @@ function page(file, title, description, body, footer) {
   <script src="menu.js?v=${cssVersion}" defer></script>
 </head>
 <body>
-  ${file === 'index.html' ? BANNER : ''}<header>
+  ${BANNER}<header>
     <div class="wrap">
       <nav aria-label="主選單"><button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-menu"><svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true"><path d="M4 6H20M4 12H20M4 18H20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>${z('選單')}</button><ul id="main-menu">${nav}</ul></nav>
     </div>
