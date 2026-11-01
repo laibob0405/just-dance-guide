@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.join(__dirname, '..');
-const cssVersion = 17;
+const cssVersion = 18;
 const SITE_URL = 'https://laibob0405.github.io/just-dance-guide/';
 
 // ---------- Zhuyin ----------
@@ -224,6 +224,9 @@ const photo = (file, w, h, alt, caption, url, author, license) => {
 const parents = (summary, body) =>
   `<details class="parent"><summary>給家長看：${summary}</summary>\n${body}\n</details>`;
 
+const BANNER = `<div class="wrap banner"><img src="images/og-image.png" width="1200" height="630" alt="一起跳 Just Dance，跳高分的六個關鍵，小朋友也看得懂的親子指南。插圖是舉著 Joy-Con 跳舞的小人、音符和金色星星" fetchpriority="high"></div>
+  `;
+
 function page(file, title, description, body, footer) {
   const nav = NAV.map(([href, label]) =>
     `<li><a href="${href}"${href === file ? ' aria-current="page"' : ''}>${z(label)}</a></li>`).join('');
@@ -251,7 +254,7 @@ function page(file, title, description, body, footer) {
   <script src="menu.js?v=${cssVersion}" defer></script>
 </head>
 <body>
-  <header>
+  ${file === 'index.html' ? BANNER : ''}<header>
     <div class="wrap">
       <nav aria-label="主選單"><button type="button" class="menu-toggle" aria-expanded="false" aria-controls="main-menu"><svg viewBox="0 0 24 24" width="32" height="32" aria-hidden="true"><path d="M4 6H20M4 12H20M4 18H20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>${z('選單')}</button><ul id="main-menu">${nav}</ul></nav>
     </div>

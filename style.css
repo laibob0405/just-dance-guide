@@ -66,6 +66,17 @@ a { color: var(--accent); }
 
 .zy .p { margin-left: 2px; }
 
+.banner { padding-top: 16px; padding-bottom: 16px; }
+
+.banner img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
 header {
   background: var(--surface);
   border-bottom: 1px solid var(--line);
