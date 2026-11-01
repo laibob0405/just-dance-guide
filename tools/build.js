@@ -269,7 +269,7 @@ page('index.html', 'Just Dance 親子指南', '用孩子看得懂的圖和注音
     <h1>${z('一起跳 Just Dance')}</h1>
     <p class="lead">${z('跟著舞者跳，一起動起來！')}</p>
     ${conclusion('遊戲主要看你拿 Joy-Con 的那隻手。')}
-    <p><a class="cta" href="high-score.html">${z('去看怎麼跳高分')} →</a></p>
+    <p><a class="cta" href="kids.html">${z('去看怎麼練習')} →</a></p>
     <figure class="hero"><img src="images/eb-games-expo-2015.jpg" width="1280" height="960" alt="展場的發光舞台上，幾位玩家跟著 Just Dance 2016 的大螢幕一起跳舞" fetchpriority="high"><figcaption>2015 年 EB Games Expo 的舞台。照片：<a href="https://commons.wikimedia.org/wiki/File:EB_Games_Expo_2015_-_Just_Dance_2016.JPG">Philip Terry Graham</a>，<a href="https://creativecommons.org/publicdomain/zero/1.0/deed.zh-hant">CC0</a>，已縮小尺寸。</figcaption></figure>
 
     ${h2('這是什麼遊戲？')}
