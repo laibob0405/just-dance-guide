@@ -31,11 +31,20 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", system-ui, sans-serif;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.8;
 }
 
 a { color: var(--accent); }
+
+ruby { ruby-position: over; }
+
+rt {
+  font-size: 0.5em;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.1;
+}
 
 header {
   background: var(--surface);
@@ -43,31 +52,24 @@ header {
 }
 
 .wrap {
-  max-width: 780px;
+  max-width: 860px;
   margin: 0 auto;
   padding: 0 16px;
-}
-
-.brand {
-  display: block;
-  padding-top: 14px;
-  font-weight: 700;
-  color: var(--text);
-  text-decoration: none;
 }
 
 nav ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 2px 14px;
+  gap: 4px 18px;
   margin: 0;
-  padding: 4px 0 12px;
+  padding: 10px 0;
   list-style: none;
+  line-height: 2;
 }
 
 nav a {
-  font-size: 15px;
   color: var(--muted);
+  font-size: 18px;
   text-decoration: none;
 }
 
@@ -78,36 +80,150 @@ nav a[aria-current="page"] {
   font-weight: 700;
 }
 
-main { padding: 28px 0 40px; }
+main { padding: 24px 0 40px; }
 
 h1 {
-  margin: 0 0 12px;
-  font-size: 32px;
-  line-height: 1.3;
+  margin: 0 0 8px;
+  font-size: 36px;
+  line-height: 1.8;
 }
 
 h2 {
-  margin: 36px 0 10px;
-  font-size: 23px;
-  line-height: 1.4;
+  margin: 36px 0 12px;
+  font-size: 26px;
+  line-height: 2;
 }
 
-h2 + .sub {
-  margin: -6px 0 14px;
+.lead {
+  margin: 0 0 12px;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 21px;
+  line-height: 2.2;
+}
+
+.big {
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 2.2;
+}
+
+.key {
+  margin: 16px 0;
+  padding: 12px 18px;
+  background: var(--gold-soft);
+  border-left: 5px solid var(--gold);
+  border-radius: 6px;
 }
 
 .key .label {
   display: block;
   color: var(--gold);
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 2.1;
+}
+
+.key p {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 2.2;
+}
+
+.note {
+  margin: 20px 0;
+  padding: 14px 18px;
+  background: var(--accent-soft);
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.cta {
+  font-size: 20px;
   font-weight: 700;
 }
 
-.lead {
-  color: var(--muted);
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  padding: 0;
+  list-style: none;
+  counter-reset: card;
+}
+
+.cards li {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  counter-increment: card;
+}
+
+ol.cards li::before {
+  content: counter(card);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--surface);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 36px;
+  text-align: center;
+}
+
+.cards svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cards h3 {
+  margin: 10px 14px 4px;
+  font-size: 23px;
+  line-height: 2.1;
+}
+
+.cards p {
+  margin: 0 14px 14px;
   font-size: 19px;
+  line-height: 2.3;
+}
+
+.ratings {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.ratings li {
+  display: grid;
+  grid-template-columns: 90px 130px 1fr;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 19px;
+  line-height: 2.2;
+}
+
+.stars {
+  display: block;
+  width: 130px;
+  height: auto;
+}
+
+@media (max-width: 520px) {
+  .ratings li { grid-template-columns: 80px 1fr; }
+  .ratings li span { grid-column: 1 / -1; }
 }
 
 figure { margin: 24px 0; }
@@ -126,71 +242,11 @@ figcaption {
   line-height: 1.6;
 }
 
-figure.small img {
-  max-width: 280px;
-  margin: 0 auto;
-}
-
-ol.kid-steps {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  padding: 0;
-  list-style: none;
-  counter-reset: kid;
-}
-
-ol.kid-steps li {
-  position: relative;
-  overflow: hidden;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  counter-increment: kid;
-}
-
-ol.kid-steps li::before {
-  content: counter(kid);
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: var(--surface);
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 36px;
-  text-align: center;
-}
-
-ol.kid-steps svg {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-ol.kid-steps h3 {
-  margin: 12px 14px 2px;
-  font-size: 22px;
-}
-
-ol.kid-steps p {
-  margin: 0 14px 14px;
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-@media (max-width: 520px) {
-  ol.kid-steps { grid-template-columns: 1fr; }
-}
-
 details.parent {
-  margin: 20px 0;
+  margin: 28px 0;
   padding: 12px 18px;
   background: var(--accent-soft);
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 16px;
 }
 
@@ -199,69 +255,16 @@ details.parent summary {
   cursor: pointer;
 }
 
-.key {
-  margin: 20px 0;
-  padding: 16px 18px;
-  background: var(--gold-soft);
-  border-left: 4px solid var(--gold);
-  border-radius: 6px;
-}
-
-.note {
-  margin: 20px 0;
-  padding: 14px 18px;
-  background: var(--accent-soft);
-  border-radius: 6px;
-  font-size: 16px;
-}
-
-.cta {
-  display: inline-block;
-  margin-top: 4px;
-  font-weight: 700;
-}
-
-ol.steps {
-  padding-left: 0;
-  list-style: none;
-  counter-reset: step;
-}
-
-ol.steps li {
-  position: relative;
-  margin: 0 0 16px;
-  padding: 14px 16px 14px 56px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  counter-increment: step;
-}
-
-ol.steps li::before {
-  content: counter(step);
-  position: absolute;
-  top: 14px;
-  left: 16px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--accent);
-  color: var(--surface);
-  font-weight: 700;
-  line-height: 28px;
-  text-align: center;
-}
-
 .table-scroll { overflow-x: auto; }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 th, td {
-  padding: 10px;
+  padding: 8px;
   border-bottom: 1px solid var(--line);
   text-align: left;
   vertical-align: top;
