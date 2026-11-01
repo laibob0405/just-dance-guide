@@ -70,10 +70,8 @@ a { color: var(--accent); }
 
 .banner img {
   display: block;
-  width: auto;
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  margin: 0 auto;
   border-radius: 12px;
 }
 
@@ -88,7 +86,10 @@ header {
   padding: 0 16px;
 }
 
-header .wrap { max-width: 1240px; }
+header .wrap,
+.wrap.banner { max-width: 1232px; }
+
+nav li { flex: 1 1 auto; }
 
 nav ul {
   display: flex;
