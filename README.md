@@ -5,3 +5,5 @@
 純靜態 HTML / CSS，透過 GitHub Pages 發布。
 
 網頁由 `tools/build.js` 產生；修改內容、注音或圖示後，請執行 `node tools/build.js`。
+
+分享顯圖的原稿是 `tools/og-image.html`，輸出為 `images/og-image.png`（1200 × 630）。
