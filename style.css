@@ -92,6 +92,19 @@ h2 {
   line-height: 1.4;
 }
 
+h2 + .sub {
+  margin: -6px 0 14px;
+  color: var(--muted);
+  font-size: 16px;
+}
+
+.key .label {
+  display: block;
+  color: var(--gold);
+  font-size: 18px;
+  font-weight: 700;
+}
+
 .lead {
   color: var(--muted);
   font-size: 19px;
