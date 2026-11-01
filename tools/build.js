@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.join(__dirname, '..');
-const cssVersion = 14;
+const cssVersion = 15;
 const SITE_URL = 'https://laibob0405.github.io/just-dance-guide/';
 
 // ---------- Zhuyin ----------
@@ -201,8 +201,8 @@ const NAV = [
 ];
 
 const cards = (items, numbered) =>
-  `<${numbered ? 'ol' : 'ul'} class="cards${items.length % 2 === 0 ? ' two' : ''}">\n${items.map(([svg, title, text]) =>
-    `<li>${svg}<h3>${z(title)}</h3>${text ? `<p>${z(text)}</p>` : ''}</li>`).join('\n')}\n</${numbered ? 'ol' : 'ul'}>`;
+  `<${numbered ? 'ol' : 'ul'} class="cards${items[0][2] ? ' rows' : items.length % 2 === 0 ? ' two' : ''}">\n${items.map(([svg, title, text]) =>
+    `<li>${svg}<div class="card-text"><h3>${z(title)}</h3>${text ? `<p>${z(text)}</p>` : ''}</div></li>`).join('\n')}\n</${numbered ? 'ol' : 'ul'}>`;
 
 const conclusion = text =>
   `<div class="key"><span class="label">${z('結論')}</span><p>${z(text)}</p></div>`;
@@ -324,7 +324,7 @@ page('high-score.html', 'Just Dance 跳高分', '用注音和扁平圖示，讓�
     ${cards([
       [I.shake, '只甩手'],
       [I.feet, '只動腳'],
-      [I.hard, '一開始就選難歌'],
+      [I.hard, '先選難歌'],
     ])}
 
     ${parents('六個關鍵的補充與分數低的原因', `
@@ -391,7 +391,7 @@ page('kids.html', '陪孩子練 Just Dance', '分四步驟練習 Just Dance，�
     ${h2('跳得開心最重要')}
     ${cards([
       [I.self, '跟自己比'],
-      [I.family, '跟家人互相教'],
+      [I.family, '互相教'],
       [I.rest, '玩累就休息'],
     ])}
 

@@ -167,12 +167,12 @@ h2 {
 .lead {
   margin: 0 0 12px;
   color: var(--muted);
-  font-size: 40px;
+  font-size: 36px;
   line-height: 1.5;
 }
 
 .big {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -188,14 +188,14 @@ h2 {
 .key .label {
   display: block;
   color: var(--gold);
-  font-size: 40px;
+  font-size: 34px;
   font-weight: 700;
   line-height: 1.4;
 }
 
 .key p {
   margin: 0;
-  font-size: 44px;
+  font-size: 36px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -209,7 +209,7 @@ h2 {
 }
 
 .cta {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 700;
 }
 
@@ -228,7 +228,18 @@ h2 {
   .cards.two { grid-template-columns: 1fr; }
   h1 { font-size: 48px; }
   h2 { font-size: 42px; }
-  .cards h3 { font-size: 42px; }
+}
+
+.cards.rows { grid-template-columns: 1fr; }
+
+.cards.rows li {
+  display: grid;
+  grid-template-columns: 200px minmax(0, 1fr);
+  align-items: center;
+}
+
+@media (max-width: 520px) {
+  .cards.rows li { grid-template-columns: 1fr; }
 }
 
 .cards li {
@@ -264,13 +275,14 @@ ol.cards li::before {
 
 .cards h3 {
   margin: 10px 14px 4px;
-  font-size: 46px;
+  white-space: normal;
+  font-size: 34px;
   line-height: 1.35;
 }
 
 .cards p {
   margin: 0 14px 14px;
-  font-size: 40px;
+  font-size: 34px;
   line-height: 1.5;
 }
 
@@ -290,7 +302,7 @@ ol.cards li::before {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 10px;
-  font-size: 40px;
+  font-size: 34px;
   line-height: 1.4;
 }
 
