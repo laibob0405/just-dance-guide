@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.join(__dirname, '..');
-const cssVersion = 5;
+const cssVersion = 6;
 
 // ---------- Zhuyin ----------
 
@@ -59,7 +59,10 @@ function z(text) {
 
 function ruby(ch, reading) {
   used.push([ch, reading]);
-  return `<ruby>${ch}<rt>${reading}</rt></ruby>`;
+  // Textbook layout: symbols stacked to the right of the character, tone mark beside them.
+  const m = reading.match(/^(.*?)([ˊˇˋ]?)$/);
+  const tone = m[2] ? `<span class="t">${m[2]}</span>` : '';
+  return `<span class="zy">${ch}<span class="b" aria-hidden="true"><span class="s">${m[1]}</span>${tone}</span></span>`;
 }
 
 // ---------- Flat icons: one palette, one figure, thick rounded strokes ----------
@@ -126,17 +129,17 @@ const I = {
     + `<rect x="46" y="62" width="24" height="24" rx="5" fill="#fff"/>` + `<g transform="translate(58 64) scale(.24) translate(-100 0)">${person(100, 0, C.purple, [-28, 12], [28, 12])}</g>`
     + `<path d="M72 112q28-22 56 0q-28 22-56 0z" fill="#fff"/><circle cx="100" cy="112" r="9" fill="${C.purple}"/>`),
   mirror: icon('舞者和你都把手伸向同一邊', C.rose,
-    line('M100 8V122', C.white, 4) + person(50, 8, C.purple, [-20, 62], [34, 16]) + person(130, 8, C.blue, [-20, 62], [34, 16])
-    + `<text x="50" y="124" font-family="sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="${C.ink}">舞者</text>`
-    + `<text x="130" y="124" font-family="sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="${C.ink}">你</text>`),
+    line('M106 8V122', C.white, 4) + person(62, 8, C.purple, [-20, 62], [34, 16]) + person(146, 8, C.blue, [-20, 62], [34, 16])
+    + `<text x="62" y="124" font-family="sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="${C.ink}">舞者</text>`
+    + `<text x="146" y="124" font-family="sans-serif" font-size="14" font-weight="700" text-anchor="middle" fill="${C.ink}">你</text>`),
   repeat: icon('金色星星外面有一圈重複的箭頭', C.ice,
     line('M138 40a48 48 0 1 0 10 34', C.blue, 9) + line('M122 38l18 3 3-18', C.blue, 9) + star(100, 66)),
   sense: icon('Joy-Con 感覺到手在動', C.sky,
     `<rect x="84" y="28" width="32" height="76" rx="14" fill="${C.red}"/><circle cx="100" cy="46" r="7" fill="${C.ink}"/>`
     + line('M66 44q-14 22 0 44M48 32q-24 34 0 68', C.blue, 6) + line('M134 44q14 22 0 44M152 32q24 34 0 68', C.blue, 6)),
   compare: icon('你的動作和舞者的動作比一比', C.sand,
-    person(50, 18, C.blue, [-24, 68], [30, 6]) + person(150, 18, C.purple, [-24, 68], [30, 6])
-    + line('M90 60H110M90 74H110', C.ink, 6)),
+    person(60, 22, C.blue, [-24, 68], [30, 6]) + person(146, 22, C.purple, [-24, 68], [30, 6])
+    + line('M95 62H111M95 76H111', C.ink, 6)),
   grade: icon('得到一個好評價和星星', C.mint,
     star(62, 66) + star(100, 54, 1.25) + star(138, 66)),
   game: icon('跟著電視裡的舞者跳', C.lilac,
