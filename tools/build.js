@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.join(__dirname, '..');
-const cssVersion = 11;
+const cssVersion = 12;
 
 // ---------- Zhuyin ----------
 

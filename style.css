@@ -80,7 +80,7 @@ header {
 nav ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 14px;
+  gap: 4px 6px;
   margin: 0;
   padding: 10px 0;
   list-style: none;
