@@ -259,6 +259,12 @@ figure img {
   border-radius: 8px;
 }
 
+.hero img {
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
 figcaption {
   margin-top: 8px;
   color: var(--muted);

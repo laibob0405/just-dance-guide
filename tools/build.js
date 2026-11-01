@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.join(__dirname, '..');
-const cssVersion = 7;
+const cssVersion = 8;
 
 // ---------- Zhuyin ----------
 
@@ -258,6 +258,7 @@ page('index.html', 'Just Dance 親子指南', '用孩子看得懂的圖和注音
     <p class="lead">${z('跟著舞者跳，一起動起來！')}</p>
     ${conclusion('遊戲主要看你拿 Joy-Con 的那隻手。')}
     <p><a class="cta" href="high-score.html">${z('去看怎麼跳高分')} →</a></p>
+    <figure class="hero"><img src="images/eb-games-expo-2015.jpg" width="1280" height="960" alt="展場的發光舞台上，幾位玩家跟著 Just Dance 2016 的大螢幕一起跳舞" fetchpriority="high"><figcaption>2015 年 EB Games Expo 的舞台。照片：<a href="https://commons.wikimedia.org/wiki/File:EB_Games_Expo_2015_-_Just_Dance_2016.JPG">Philip Terry Graham</a>，<a href="https://creativecommons.org/publicdomain/zero/1.0/deed.zh-hant">CC0</a>，已縮小尺寸。</figcaption></figure>
 
     ${h2('這是什麼遊戲？')}
     ${cards([
@@ -274,7 +275,6 @@ page('index.html', 'Just Dance 親子指南', '用孩子看得懂的圖和注音
       [I.stop, '不舒服就停下來'],
     ])}
 
-    ${photo('eb-games-expo-2015.jpg', 960, 720, '展場的發光舞台上，幾位玩家跟著 Just Dance 2016 的大螢幕一起跳舞', '2015 年 EB Games Expo 的舞台。', 'https://commons.wikimedia.org/wiki/File:EB_Games_Expo_2015_-_Just_Dance_2016.JPG', 'Philip Terry Graham', 'CC0')}
 
     <div class="note"><strong>請家長留意：</strong>如果孩子或家族有癲癇或光敏感病史，玩之前請先問過醫師。如果玩的時候出現抽搐、視線異常或意識恍惚，要立刻停止並就醫。</div>
 
