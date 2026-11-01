@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.join(__dirname, '..');
-const cssVersion = 20;
+const cssVersion = 21;
 const SITE_URL = 'https://laibob0405.github.io/just-dance-guide/';
 
 // ---------- Zhuyin ----------
@@ -194,6 +194,17 @@ const I = {
   choose: icon('選出喜歡的歌', C.rose, heart(70, 66) + note(126, 88, C.purple)),
 };
 
+// Picture-book illustrations generated with Google Gemini, replacing the drawn icons above.
+const PICTURE = {
+  family: 'compare', level: 'hint', preview: 'firstLook', choose: 'song', hard: 'song',
+};
+
+for (const key of Object.keys(I)) {
+  const alt = I[key].match(/aria-label="([^"]*)"/)[1];
+  const img = `<img src="images/ai/${PICTURE[key] || key}.jpg" width="800" height="533" alt="${alt}" loading="lazy">`;
+  I[key] = key === 'hard' ? `<span class="not-this">${img}<span class="cross" aria-hidden="true">✕</span></span>` : img;
+}
+
 const stars = n => `<svg viewBox="0 0 150 30" class="stars" role="img" aria-label="${n} 顆星">${
   [0, 1, 2, 3, 4].map(i => star(15 + i * 30, 15, 0.55, i < n ? C.gold : '#d5d2c8')).join('')}</svg>`;
 
@@ -224,7 +235,7 @@ const photo = (file, w, h, alt, caption, url, author, license) => {
 const parents = (summary, body) =>
   `<details class="parent"><summary>給家長看：${summary}</summary>\n${body}\n</details>`;
 
-const BANNER = `<div class="wrap banner"><img src="images/og-image.png" width="1200" height="630" alt="一起跳 Just Dance，跳高分的六個關鍵，小朋友也看得懂的親子指南。插圖是舉著 Joy-Con 跳舞的小人、音符和金色星星" fetchpriority="high"></div>
+const BANNER = `<div class="wrap banner"><img src="images/ai/hero.jpg" width="1600" height="893" alt="兩個小女孩在明亮的客廳裡，各拿一支白色控制器，開心地對著電視跳舞" fetchpriority="high"></div>
   `;
 
 function page(file, title, description, body, footer) {
@@ -242,10 +253,10 @@ function page(file, title, description, body, footer) {
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
   <meta property="og:url" content="${SITE_URL}${file === 'index.html' ? '' : file}">
-  <meta property="og:image" content="${SITE_URL}images/og-image.png">
+  <meta property="og:image" content="${SITE_URL}images/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="扁平插圖：舉著 Joy-Con 跳舞的小人、音符和金色星星，標題是一起跳 Just Dance">
+  <meta property="og:image:alt" content="繪本風插圖：兩個小女孩在客廳對著電視開心跳舞">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
@@ -263,7 +274,7 @@ function page(file, title, description, body, footer) {
 ${body}
   </main>
   <footer>
-    <div class="wrap">非官方整理，與 Ubisoft 無關。圖示為本站自製。${footer}</div>
+    <div class="wrap">非官方整理，與 Ubisoft 無關。插圖由 Google Gemini 生成。${footer}</div>
   </footer>
 </body>
 </html>
@@ -315,7 +326,7 @@ page('index.html', 'Just Dance 親子指南', '用孩子看得懂的圖和注音
       ${photo('gamescom-2015.jpg', 960, 700, '兩位穿著騎士盔甲服裝的人，背對鏡頭跟著螢幕跳 Just Dance', '盔甲騎士也能跳。2015 年 Gamescom。', 'https://commons.wikimedia.org/wiki/File:Just_Dance_at_Gamescom_2015_(20241598168).jpg', 'Sergey Galyonkin', 'CC BY-SA 2.0')}
     `)}`, CC_NOTE + '遊戲內容可能隨版本變動，請以遊戲內顯示為準。');
 
-page('high-score.html', 'Just Dance 跳高分', '用注音和扁平圖示，讓小一、小三的孩子看懂跳高分的六個關鍵。', `
+page('high-score.html', 'Just Dance 跳高分', '用注音和插圖，讓小一、小三的孩子看懂跳高分的六個關鍵。', `
     <h1>${z('怎麼跳高分')}</h1>
     <p class="lead">${z('做好這六件事，分數就有機會變高！')}</p>
     ${conclusion('遊戲主要看拿 Joy-Con 的手，要做對！')}
@@ -355,7 +366,7 @@ const RATINGS = [
   ['X', '沒有對到', 0], ['OK', '有一點像', 1], ['Good', '很不錯', 2], ['Super', '非常像', 3], ['Perfect', '幾乎一樣', 5],
 ];
 
-page('scoring.html', 'Just Dance 評分方式', '用三個扁平圖示步驟，讓孩子看懂 Just Dance 怎麼給評價。', `
+page('scoring.html', 'Just Dance 評分方式', '用三個插圖步驟，讓孩子看懂 Just Dance 怎麼給評價。', `
     <h1>${z('遊戲怎麼給分')}</h1>
     <p class="lead">${z('三個步驟，一看就懂！')}</p>
     ${conclusion('你的手越像舞者，評價越高。')}

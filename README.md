@@ -6,4 +6,4 @@
 
 網頁由 `tools/build.js` 產生；修改內容、注音或圖示後，請執行 `node tools/build.js`。
 
-分享顯圖的原稿是 `tools/og-image.html`，輸出為 `images/og-image.png`（1200 × 630）。
+插圖由 Google Gemini 生成，放在 `images/ai/`；分享顯圖是 `images/og-image.jpg`（1200 × 630）。

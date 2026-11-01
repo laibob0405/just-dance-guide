@@ -279,10 +279,32 @@ ol.cards li::before {
   text-align: center;
 }
 
-.cards svg {
+.cards img {
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.not-this {
+  position: relative;
+  display: block;
+}
+
+.cross {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #d9352c;
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 44px;
+  text-align: center;
 }
 
 .cards h3 {
