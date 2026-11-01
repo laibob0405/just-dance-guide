@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const root = path.join(__dirname, '..');
-const cssVersion = 8;
+const cssVersion = 9;
 
 // ---------- Zhuyin ----------
 
@@ -200,7 +200,7 @@ const NAV = [
 ];
 
 const cards = (items, numbered) =>
-  `<${numbered ? 'ol' : 'ul'} class="cards${items.length === 4 ? ' two' : ''}">\n${items.map(([svg, title, text]) =>
+  `<${numbered ? 'ol' : 'ul'} class="cards${items.length % 2 === 0 ? ' two' : ''}">\n${items.map(([svg, title, text]) =>
     `<li>${svg}<h3>${z(title)}</h3>${text ? `<p>${z(text)}</p>` : ''}</li>`).join('\n')}\n</${numbered ? 'ol' : 'ul'}>`;
 
 const conclusion = text =>

@@ -40,16 +40,17 @@ a { color: var(--accent); }
 .zy {
   display: inline-flex;
   align-items: center;
-  margin-right: 3px;
+  margin-right: 4px;
   white-space: nowrap;
   vertical-align: middle;
+  line-height: 1;
 }
 
 .zy .b {
   display: inline-flex;
   align-items: center;
-  margin-left: 1px;
-  font-size: max(0.55em, 12px);
+  margin-left: 2px;
+  font-size: 0.33em;
   font-weight: 400;
   line-height: 1;
 }
@@ -58,11 +59,12 @@ a { color: var(--accent); }
   writing-mode: vertical-rl;
   text-orientation: upright;
   letter-spacing: 0;
+  line-height: 1;
 }
 
-.zy .t { font-size: 1.1em; }
+.zy .t { line-height: 1; }
 
-.zy .p { margin-left: 1px; }
+.zy .p { margin-left: 2px; }
 
 header {
   background: var(--surface);
@@ -87,7 +89,7 @@ nav ul {
 
 nav a {
   color: var(--muted);
-  font-size: 21px;
+  font-size: 28px;
   text-decoration: none;
 }
 
@@ -102,27 +104,27 @@ main { padding: 24px 0 40px; }
 
 h1 {
   margin: 0 0 8px;
-  font-size: 40px;
-  line-height: 1.5;
+  font-size: 52px;
+  line-height: 1.4;
 }
 
 h2 {
   margin: 36px 0 12px;
-  font-size: 29px;
-  line-height: 1.5;
+  font-size: 40px;
+  line-height: 1.4;
 }
 
 .lead {
   margin: 0 0 12px;
   color: var(--muted);
-  font-size: 24px;
-  line-height: 1.7;
+  font-size: 34px;
+  line-height: 1.5;
 }
 
 .big {
-  font-size: 24px;
+  font-size: 34px;
   font-weight: 700;
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
 .key {
@@ -136,16 +138,16 @@ h2 {
 .key .label {
   display: block;
   color: var(--gold);
-  font-size: 23px;
+  font-size: 32px;
   font-weight: 700;
-  line-height: 1.6;
+  line-height: 1.4;
 }
 
 .key p {
   margin: 0;
-  font-size: 25px;
+  font-size: 38px;
   font-weight: 700;
-  line-height: 1.7;
+  line-height: 1.5;
 }
 
 .note {
@@ -157,13 +159,13 @@ h2 {
 }
 
 .cta {
-  font-size: 23px;
+  font-size: 34px;
   font-weight: 700;
 }
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 16px;
   padding: 0;
   list-style: none;
@@ -174,6 +176,8 @@ h2 {
 
 @media (max-width: 520px) {
   .cards.two { grid-template-columns: 1fr; }
+  h1 { font-size: 44px; }
+  .cards h3 { font-size: 38px; }
 }
 
 .cards li {
@@ -209,14 +213,14 @@ ol.cards li::before {
 
 .cards h3 {
   margin: 10px 14px 4px;
-  font-size: 27px;
-  line-height: 1.5;
+  font-size: 40px;
+  line-height: 1.35;
 }
 
 .cards p {
   margin: 0 14px 14px;
-  font-size: 23px;
-  line-height: 1.8;
+  font-size: 36px;
+  line-height: 1.5;
 }
 
 .ratings {
@@ -235,8 +239,8 @@ ol.cards li::before {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 10px;
-  font-size: 23px;
-  line-height: 1.6;
+  font-size: 34px;
+  line-height: 1.4;
 }
 
 .stars {
@@ -246,7 +250,7 @@ ol.cards li::before {
 }
 
 @media (max-width: 520px) {
-  .ratings li { grid-template-columns: 80px 1fr; }
+  .ratings li { grid-template-columns: 90px 1fr; }
   .ratings li span { grid-column: 1 / -1; }
 }
 
