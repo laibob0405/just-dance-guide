@@ -72,7 +72,7 @@ header {
 }
 
 .wrap {
-  max-width: 860px;
+  max-width: 1040px;
   margin: 0 auto;
   padding: 0 16px;
 }
@@ -80,7 +80,7 @@ header {
 nav ul {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 18px;
+  gap: 4px 14px;
   margin: 0;
   padding: 10px 0;
   list-style: none;
@@ -89,7 +89,7 @@ nav ul {
 
 nav a {
   color: var(--muted);
-  font-size: 34px;
+  font-size: 40px;
   text-decoration: none;
 }
 
@@ -104,25 +104,25 @@ main { padding: 24px 0 40px; }
 
 h1 {
   margin: 0 0 8px;
-  font-size: 52px;
+  font-size: 58px;
   line-height: 1.4;
 }
 
 h2 {
   margin: 36px 0 12px;
-  font-size: 40px;
+  font-size: 46px;
   line-height: 1.4;
 }
 
 .lead {
   margin: 0 0 12px;
   color: var(--muted);
-  font-size: 34px;
+  font-size: 40px;
   line-height: 1.5;
 }
 
 .big {
-  font-size: 34px;
+  font-size: 40px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -138,14 +138,14 @@ h2 {
 .key .label {
   display: block;
   color: var(--gold);
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 700;
   line-height: 1.4;
 }
 
 .key p {
   margin: 0;
-  font-size: 38px;
+  font-size: 44px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -159,7 +159,7 @@ h2 {
 }
 
 .cta {
-  font-size: 34px;
+  font-size: 40px;
   font-weight: 700;
 }
 
@@ -176,8 +176,9 @@ h2 {
 
 @media (max-width: 520px) {
   .cards.two { grid-template-columns: 1fr; }
-  h1 { font-size: 44px; }
-  .cards h3 { font-size: 38px; }
+  h1 { font-size: 48px; }
+  h2 { font-size: 42px; }
+  .cards h3 { font-size: 42px; }
 }
 
 .cards li {
@@ -213,13 +214,13 @@ ol.cards li::before {
 
 .cards h3 {
   margin: 10px 14px 4px;
-  font-size: 40px;
+  font-size: 46px;
   line-height: 1.35;
 }
 
 .cards p {
   margin: 0 14px 14px;
-  font-size: 36px;
+  font-size: 40px;
   line-height: 1.5;
 }
 
@@ -232,14 +233,14 @@ ol.cards li::before {
 
 .ratings li {
   display: grid;
-  grid-template-columns: 90px 130px 1fr;
+  grid-template-columns: 170px 130px 1fr;
   align-items: center;
   gap: 12px;
   padding: 8px 14px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 10px;
-  font-size: 34px;
+  font-size: 40px;
   line-height: 1.4;
 }
 
@@ -250,7 +251,7 @@ ol.cards li::before {
 }
 
 @media (max-width: 520px) {
-  .ratings li { grid-template-columns: 90px 1fr; }
+  .ratings li { grid-template-columns: 150px 1fr; }
   .ratings li span { grid-column: 1 / -1; }
 }
 
